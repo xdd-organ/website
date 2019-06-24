@@ -9,5 +9,7 @@ import java.util.Map;
  */
 public interface HomeMapper {
 
+    int insert(Map<String, Object> params);
+
     List<Map<String, Object>> getHome();
 }

@@ -5,6 +5,36 @@
         <!--<selectKey keyProperty="id" resultType="java.lang.Long">
             select last_insert_id()
         </selectKey>-->
+        INSERT INTO lock_order
+        (
+        order_no,
+        lock_no,
+        start_time,
+        end_time,
+        user_id,
+        fee,
+        `type`,
+        insert_time,
+        insert_author,
+        update_time,
+        update_author,
+        total_time
+        )
+        VALUES
+        (
+        #{order_no},
+        #{lock_no},
+        #{start_time},
+        #{end_time},
+        #{user_id},
+        #{fee},
+        1,
+        #{start_time},
+        #{user_id},
+        '2018-08-08 08:08:08',
+        #{user_id},
+        #{total_time}
+        );
     </insert>
 
     <select id="getHome" parameterType="java.util.Map" resultType="java.util.Map">
