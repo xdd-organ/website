@@ -33,6 +33,9 @@
             <includes>
                 <include>*.properties</include>
             </includes>
+            <excludes>
+                <exclude>*log4j.properties</exclude>
+            </excludes>
         </fileSet>
         
         <!--conf下面只有可配置的properties文件  -->

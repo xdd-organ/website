@@ -24,6 +24,7 @@
 		<java.version>1.8</java.version>
 		<mysql.driver.version>5.1.30</mysql.driver.version>
 		<alibaba.dataSource.version>0.2.26</alibaba.dataSource.version>
+		<lof4j.api.version>1.7.7</lof4j.api.version>
 	</properties>
 
 	<dependencies>
@@ -128,8 +129,9 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<!-- properties文件不打包到项目项目的springboot.jar中 -->
+
 					<excludes>
-						<exclude>**.properties</exclude>
+						<exclude>application-*.properties</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
