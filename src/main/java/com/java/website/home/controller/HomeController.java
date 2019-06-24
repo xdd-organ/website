@@ -6,6 +6,7 @@ import com.java.website.home.mapper.HomeMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,8 @@ public class HomeController {
 
     @Autowired
     private HomeMapper homeMapper;
+    @Value("${name}")
+    private String name;
 
     @RequestMapping("home")
     public String home() {
@@ -42,8 +45,14 @@ public class HomeController {
         return home;
     }
 
-    private String[] lockNos = new String[]{"768901008108","687020003393","686124219814","687020005539","768901008573","687020007063"};
-    private String[] userIds = new String[]{"100000695","100000578","100000683","100000629","100000578","100000630"};
+    private String[] lockNos = new String[]{"768901008108","687020003393","686124219814","687020005539","768901008573","687020007063",
+            "687020006941","687020002312","768901008343","686123675719","768901007222","768901008518","768901008572","768901008190",
+            "768901007222","768901008190","768901008108","768901006742","768901008234","687020010513","768901006767","768901008350"
+    };
+    private String[] userIds = new String[]{"100000016","100000017","100000018","100000019","100000020","100000021","100000022",
+            "100000023","100000024","100000025","100000203","100000204","100000205","100000206","100000207","100000208",
+            "100000209","100000210"
+    };
     @RequestMapping("insert")
     public Object insert(@RequestParam("date") String date) {
         LOGGER.info("HomeController.insert");
