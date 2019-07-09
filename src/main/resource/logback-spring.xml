@@ -1,6 +1,6 @@
 <configuration>
 
-    <property name="logPattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [%X{orderId}] %msg%n"/>
+    <property name="logPattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level [%X{serial_no}][%X{user_id}] %logger{36} - %msg%n"/>
     <!--<property name="infoPath" value="F:/log/tcp/%d{yyyy-MM-dd}/info.%d.log"/>-->
     <!--<property name="errorPath" value="F:/log/tcp/error/info.%d.log"/>-->
     <property name="infoPath" value="./log/%d{yyyy-MM-dd}/info.%d.log"/>
@@ -36,7 +36,7 @@
             <onMismatch>DENY</onMismatch><!-- DENY:如果没有命中就不使用这条规则,ACCEPT:如果没有命中就使用这条规则 -->
         </filter>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [%X{orderId}] %msg%n</pattern>
+            <pattern>${logPattern}</pattern>
         </encoder>
         <!-- 滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
