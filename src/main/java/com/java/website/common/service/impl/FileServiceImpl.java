@@ -29,15 +29,15 @@ public class FileServiceImpl implements FileService {
 
     private static final Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
 
-    @Value("${imgPath:}")
+    @Value("${imgPath:img}")
     private String imgPath;
-    @Value("${imgBaseUrl:}")
+    @Value("${imgBaseUrl:http://120.79.240.245:8086/website/static/}")
     private String imgBaseUrl;
 
     @Autowired
     private FileMapper fileMapper;
 
-    @Value("${savePath:}")
+    @Value("${savePath:/app/website/static/}")
     private String savePath;
 
     @Override
@@ -61,7 +61,7 @@ public class FileServiceImpl implements FileService {
                 param.put("name", imgBasePath);
                 param.put("file_name", fileName);
                 param.put("size", size);
-                param.put("url", imgBaseUrl + imgPath + File.separator + imgBasePath);
+                param.put("url", imgBaseUrl + imgPath + "/" + imgBasePath);
                 param.put("key", SerialNumber.getRandomNum());
                 params.add(param);
             }
