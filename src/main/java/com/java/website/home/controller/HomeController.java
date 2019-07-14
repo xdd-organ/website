@@ -29,7 +29,7 @@ public class HomeController {
 
     @Autowired
     private HomeMapper homeMapper;
-    @Value("${name}")
+    @Value("${name:}")
     private String name;
 
     @RequestMapping("home")

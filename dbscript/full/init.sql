@@ -48,6 +48,22 @@ CREATE TABLE `user` (
  ) ENGINE=InnoDB AUTO_INCREMENT=100000001 DEFAULT CHARSET=utf8mb4 AVG_ROW_LENGTH=1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC COMMENT='用户';
 
 
+CREATE TABLE `product` (
+   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+   `name` varchar(32) DEFAULT NULL COMMENT '产品名称',
+   `price` int(11) DEFAULT 0 COMMENT '价格，单位：分',
+   `imgs` varchar(1024) DEFAULT NULL COMMENT '产品图片，逗号分隔',
+   `desc` varchar(1024) DEFAULT NULL COMMENT '产品描述',
+   `type` int(11) DEFAULT '0' COMMENT '0：非洲鼓，1：吉他，2：钢琴',
+   `status` int(11) DEFAULT '0' COMMENT '0:有效，1:删除',
+   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `insert_author` int(11) DEFAULT NULL,
+   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+   `update_author` int(11) DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 AVG_ROW_LENGTH=1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC COMMENT='产品表';
+
+
 
 
 
