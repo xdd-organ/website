@@ -63,6 +63,23 @@ CREATE TABLE `product` (
    PRIMARY KEY (`id`)
  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 AVG_ROW_LENGTH=1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC COMMENT='产品表';
 
+CREATE TABLE `consultation` (
+   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+   `name` varchar(32) DEFAULT NULL COMMENT '用户姓名',
+   `sex` int(11) DEFAULT 0 COMMENT '性别，0：男，1：女',
+   `visit` int(11) DEFAULT 0 COMMENT '是否回访，0：初始化状态，1：已回访，2：拒绝回访',
+   `phone` varchar(16) DEFAULT NULL COMMENT '手机号码',
+   `qq` varchar(16) DEFAULT NULL COMMENT 'qq号码',
+   `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
+   `desc` varchar(1024) DEFAULT NULL COMMENT '留言内容',
+   `address` varchar(128) DEFAULT NULL COMMENT '用户地址',
+   `status` int(11) DEFAULT '0' COMMENT '0:有效，1:删除',
+   `insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `insert_author` int(11) DEFAULT NULL,
+   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+   `update_author` int(11) DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 AVG_ROW_LENGTH=1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC COMMENT='咨询表';
 
 
 

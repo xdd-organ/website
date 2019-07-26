@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.website.consultation.mapper.ConsultationMapper">
+
+    <insert id="insert" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+INSERT INTO consultation
+	(
+	`name`,
+	sex,
+	phone,
+	qq,
+	email,
+	`desc`,
+	address,
+	insert_author,
+	update_author
+	)
+	VALUES
+	(
+	#{name},
+	#{sex},
+	#{phone},
+	#{qq},
+	#{email},
+	#{desc},
+	#{address},
+	#{insert_author},
+	#{insert_author}
+	);
+
+
+    </insert>
+
+    <select id="listByConsultation" parameterType="java.util.Map" resultType="java.util.Map">
+        select * from consultation a
+        <where>
+            and a.status = 0
+            <if test="sex != null and sex != ''">and a.`sex` = #{sex}</if>
+            <if test="id != null and id != ''">and a.`id` = #{id}</if>
+            <if test="name != null and name != ''">and a.name like concat('%',#{name},'%')</if>
+            <if test="phone != null and phone != ''">and a.phone like concat('%',#{phone},'%')</if>
+            <if test="qq != null and qq != ''">and a.qq like concat('%',#{qq},'%')</if>
+            <if test="email != null and email != ''">and a.email like concat('%',#{email},'%')</if>
+            <if test="desc != null and desc != ''">and a.desc like concat('%',#{desc},'%')</if>
+            <if test="address != null and address != ''">and a.address like concat('%',#{address},'%')</if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="java.util.Map">
+        update consultation
+        <set>
+            update_time = now(),
+            <if test="status != null and status != ''">`status` = #{status},</if>
+            <if test="name != null and name != ''">`name` = #{name},</if>
+            <if test="update_author != null and update_author != ''">`update_author` = #{user_id},</if>
+            <if test="sex != null and sex != ''">`sex` = #{sex},</if>
+            <if test="desc != null and desc != ''">`desc` = #{desc},</if>
+            <if test="phone != null and phone != ''">`phone` = #{phone},</if>
+            <if test="qq != null and qq != ''">`qq` = #{qq},</if>
+            <if test="email != null and email != ''">`email` = #{email},</if>
+            <if test="address != null and address != ''">`address` = #{address},</if>
+        </set>
+        where `id` = #{id} and status = 0;
+    </update>
+
+</mapper>
