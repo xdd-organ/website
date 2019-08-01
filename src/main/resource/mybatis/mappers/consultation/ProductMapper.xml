@@ -36,6 +36,7 @@ INSERT INTO consultation
         <where>
             and a.status = 0
             <if test="sex != null and sex != ''">and a.`sex` = #{sex}</if>
+            <if test="visit != null and visit != ''">and a.`visit` = #{visit}</if>
             <if test="id != null and id != ''">and a.`id` = #{id}</if>
             <if test="name != null and name != ''">and a.name like concat('%',#{name},'%')</if>
             <if test="phone != null and phone != ''">and a.phone like concat('%',#{phone},'%')</if>
@@ -51,6 +52,7 @@ INSERT INTO consultation
         <set>
             update_time = now(),
             <if test="status != null and status != ''">`status` = #{status},</if>
+            <if test="visit != null and visit != ''">`visit` = #{visit},</if>
             <if test="name != null and name != ''">`name` = #{name},</if>
             <if test="update_author != null and update_author != ''">`update_author` = #{user_id},</if>
             <if test="sex != null and sex != ''">`sex` = #{sex},</if>
