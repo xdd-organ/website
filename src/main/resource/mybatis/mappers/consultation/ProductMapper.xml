@@ -60,7 +60,14 @@ INSERT INTO consultation
             <if test="email != null and email != ''">`email` = #{email},</if>
             <if test="address != null and address != ''">`address` = #{address},</if>
         </set>
-        where `id` = #{id} and status = 0;
+        where
+        <if test="id != null">id in
+            <foreach collection="id" item="tagId" index="index"
+                     open="(" close=")" separator=",">
+                #{tagId}
+            </foreach>
+        </if>
+        and status = 0;
     </update>
 
 </mapper>
