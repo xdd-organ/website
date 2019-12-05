@@ -49,7 +49,7 @@ fi
 
 
 #启动项目
-nohup nice java -d64 -server -Xms256m -Xmx2048m -XX:-DisableExplicitGC -XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:logs/gc.log -XX:+HeapDumpOnOutOfMemoryError -XX:CompileThreshold=1500 -jar -Dspring.config.location=${PROJECT_CONF_PATH}  ${PROJECT_JAR_PATH} > ${START_APPEND_LOG} 2>&1 &
+nohup nice java -d64 -server -Xms256m -Xmx2048m -XX:-DisableExplicitGC -XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:logs/gc.log -XX:+HeapDumpOnOutOfMemoryError -XX:CompileThreshold=1500 -jar -Dspring.config.location=${PROJECT_CONF_PATH} -Djava.io.tmpdir=./tmp  ${PROJECT_JAR_PATH} > ${START_APPEND_LOG} 2>&1 &
 
 #等待server启动时间
 sleep 20
